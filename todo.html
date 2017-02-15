@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<style>
+	form#form {
+		display: flex;
+		margin-top: 2em;
+	}
+	.panel {
+		display: flex;
+		justify-content: center;
+	}
+</style>
+</head>
+<body>
+	<div class="container text-center">
+		<form id="form" action="">
+			<input id="new_note" class="form-control" type="text" name="new_note">
+			<button onclick="add()" class="btn btn-success" type="button">+</button>
+		</form>
+		<br>
+		<div id="tareas">
+		</div>
+	</div>
+	<script>
+		let tareas = [];
+		let add = function() {
+			let new_note = document.querySelector('#new_note');
+			// Guardamos la tarea en el array
+			tareas.push(new_note.value);
+			// Borramos el contenido
+			new_note.value = '';
+			new_note.focus();
+			// Redibujamos
+			render();
+		}
+		//*** Evento > Cambio Variable > Renderizar ***//
+		let del = function(pos) {
+			// Borramos de tareas
+			tareas.splice(pos, 1);
+			// Renderizamos
+			render();
+		}
+		let render = function() {
+			let html_tareas = document.querySelector('#tareas');
+			let html_final = '';
+			// Generamos el HTML
+			let num = 1;
+			for(let i of tareas) {
+				html_final += `
+					<div class="panel panel-default">
+				  		<div class="panel-body">
+				    		<h2> ${num} \u2764 ${i} 
+				    		<a href="#" class="btn btn-danger" type="button" onclick="del(${num - 1})">X</a>
+				  			<a href="#" class="btn btn-primary" type="button">Edit</a>
+				  			</h2>
+				  		</div>
+					</div>
+					`;
+				num += 1;
+			}
+			// Insertamos el HTML
+			html_tareas.innerHTML = html_final;
+		}
+
+	</script>
+</body>
+</html>

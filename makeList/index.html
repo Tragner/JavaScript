@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Make List</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color: #3CB371">
+	<div class="row" style="background-color: #2E8B57">
+		<div class="col-sm-4" style="background-color: #98FB98; padding-bottom: 800px">
+		<div class="container">
+			<h1 style="color: #3CB371">Muy Buenos Días!</h1>
+			<h3 style="color: #3CB371">¿Qué cosas hay para hoy?</h3>
+			<br>
+			<p> <span style="color: #3CB371"><i class="fa fa-pencil" aria-hidden="true"></i>Nueva tarea:</span> <input id="tarea" type="text" name="tarea">
+			<button onclick="add()" class="btn btn-success">Añadir</button></p>
+		</div>
+		</div>
+	
+		#2E8B57
+		#98FB98
+		
+		<div class="col-sm-8" style="background-color: #2E8B57; padding-bottom: 100px"">
+		<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<h2 style="text-transform: uppercase; color: #98FB98">Lista de Tareas</h2>
+				</tr>
+			</thead>
+			<hr>
+			<tbody id="lista_tareas" style="color: white; text-transform: capitalize">				
+			</tbody>
+		</table>
+		</div>
+		</div>
+	</div>
+
+<script>
+	let tareas = [];
+	let add = function() {
+		let campo_tarea = document.querySelector('#tarea');
+
+		tareas.push({tarea: campo_tarea.value});
+		let html = '';
+			// Recorremos el array
+			for (tarea of tareas) {
+				html += '<tr><ul><li><h1>' + tarea.tarea + '</h1></li></ul></tr>' 
+			}
+			lista_tareas.innerHTML = html;
+			campo_tarea.value = '';
+	}
+</script>
+	
+</body>
+</html>

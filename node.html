@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Node</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style type="text/css">
+		#mesa {
+			height: 200px;
+			width: 200px;
+			margin: 1em auto;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div id="mesa"></div>
+	<button id="red" class="btn btn-danger" onclick="colorear_rojo()">Red</button>
+	<button id="green" class="btn btn-success" onclick="colorear_verde()">Green</button>
+	<input type="range" name="" id="inclinacion" min="0" max="360" onmousemove="rotar()">
+	<button id="add" class="btn btn-primary" onclick="add()">+</button>
+	</div>
+	<script>
+		let mesa = document.querySelector('#mesa');
+		let colorear_verde = function() {
+			mesa.style.backgroundColor = 'green';
+		}
+		let colorear_rojo = function() {
+			mesa.style.backgroundColor = 'red';
+		}
+		let rotar = function() {
+			let inclination = document.querySelector('#inclinacion');
+			mesa.style.transform = `rotate(${inclinacion.value}deg)`
+		}
+		let add = function() {
+			// Creamos el elemento
+			let nuevo = document.createElement('div');
+			// Definimos el atributo
+			nuevo.setAttribute('id', 'mesa');
+			// Añadimos el elemento
+			document.querySelector('body').appendChild(nuevo);
+		}
+	</script>
+</body>
+</html>

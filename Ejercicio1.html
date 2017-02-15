@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mis Viajes</title>
+</head>
+<body>
+	<input id="viaje" type="text" name="viaje">
+	<button onclick="add()">Add</button>
+	<ul id="lista" style="list-style-type: none;">
+	</ul>
+	<script>
+		//Variable // ARRAY
+		let misViajes = [];
+		// Funcion del onclick button "add"//
+		let add = function() {
+			// Almacenamos el input escrito en el campo de texto id "viaje" en la variable //
+			let campo_texto = document.querySelector('#viaje');
+			// Cogemos el ul para añadir elementos con la id de ul= "lista" //
+			let lista = document.querySelector('#lista');
+			// Generar el codigo del ARRAY //
+			let html_viajes = '';
+			// Obtenemos y guardamos a la lista Variable //
+			misViajes.push(campo_texto.value);
+			// Creamos una variable con el patrón de la lista <li> para generar la lista de 'viaje' //
+			for (viaje of misViajes) {
+				html_viajes += '<li>' + viaje + '</li>';
+			}
+			// Introducimos en la lista. Imprimimos //
+			lista.innerHTML = html_viajes;
+			// Limpiamos el input
+			campo_texto.value = '';
+		}
+	
+	</script>
+</body>
+</html>
