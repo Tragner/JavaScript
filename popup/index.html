@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PopUp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+		#galeria img {
+			width: 300px;
+			height: 200px;
+			margin: 2em;
+			cursor: pointer;
+		}
+		#galeria {
+			display: flex;
+		}
+		#popup {
+			position: fixed;
+			color: white;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, .7);
+			display: none;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+		#popup img {
+			max-width: 800px;
+		}
+		#popup #cerrar {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<section id="galeria">
+	<!--open = function   -   'img/...' = contenido function-->
+		<img src="img/mobility.jpeg" onclick="openPopup('img/mobility.jpeg')" alt="">
+		<img src="img/wine.jpeg" onclick="openPopup('img/wine.jpeg')" alt="">
+		<img src="img/woman.jpg" onclick="openPopup('img/woman.jpg')" alt="">
+	</section>
+	<div id="popup">
+		<div id="cerrar" onclick="cerrar()">X</div>
+		<img src="img/woman.jpg" alt="">
+	</div>
+</body>
+<script>
+	let openPopup = function(rutaImagen) {
+		let popup = document.querySelector('#popup');
+		let imagen = document.querySelector('#popup img');
+		popup.style.display = 'flex';
+		imagen.setAttribute('src', rutaImagen);
+
+	}
+	let cerrar = function() {
+		popup.style.display = 'none';
+	}
+</script>
+</html>
