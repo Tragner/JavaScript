@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WordPress</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+	<header id="header">
+		<h1 class="text-center" id="tituloHeader">Título</h1>
+	</header>
+	<div class="container">
+		<p id="contenidoHTML" >
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum accusamus amet ut atque fugit quisquam tempore animi tenetur consectetur, at natus aspernatur delectus quis vel officiis et sint voluptatum, assumenda eius porro dolorum nostrum eum, perferendis ipsa! Vitae voluptas, delectus. Aliquam quas aliquid magnam corrupti in totam impedit laboriosam provident!
+		</p>
+	</div>
+	<section id="editor" class="container">
+		<form>
+			<h4>Editar plantilla</h4>
+			<input type="text" name="" id="titulo" placeholder="Escribe tu titulo" class="form-control" onkeyup="guardar()" value="Escribe tu título">
+			<textarea id="contenido" placeholder="Escribe tu texto" class="form-control" onkeyup="guardar()">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum accusamus amet ut atque fugit quisquam tempore animi tenetur consectetur, at natus aspernatur delectus quis vel officiis et sint voluptatum, assumenda eius porro dolorum nostrum eum, perferendis ipsa! Vitae voluptas, delectus. Aliquam quas aliquid magnam corrupti in totam impedit laboriosam provident!
+			</textarea>
+			<input type="text" id="imagen" placeholder="URL imagen" value="#000">
+			<input type="color" id="colorTexto" class="form-control">
+			<input type="button" value="Salvar" class="btn btn-success" onclick="guardar()">
+		</form>
+	</section>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
